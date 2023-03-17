@@ -1,50 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <title>Calculator</title>
+  body {
+    max-width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-item: center;
+  }
 
-</head>
+.calculator {
+    margin: auto;
+    width: 220px;
+    background-color: rgb(242, 242, 242);
+    border: 3px solid rgb(202, 201, 201);
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
 
-<body>
-    
-    <section class="calculator">  
-            
-        <input type="text" class="screen">
-          
-        </input>
-      
-        <div class="buttons">
-            <button type="button" class=" btn-clear" data-num="AC">AC</button>
-            <button type="button" class=" btn-del" data-num="DEL">DEL</button>
-            <button type="button" class="btn btn-grey" data-num="1">1</button>
-            <button type="button" class="btn btn-grey" data-num="2">2</button>
-            <button type="button" class="btn btn-grey" data-num="3">3</button>
-            <button type="button" class="btn btn-grey" data-num="/">/</button>
-            <button type="button" class="btn btn-grey" data-num="4">4</button>
-            <button type="button" class="btn btn-grey" data-num="5">5</button>
-            <button type="button" class="btn btn-grey" data-num="6">6</button>
-            <button type="button" class="btn btn-yellow" data-num="*">*</button>
-            <button type="button" class="btn btn-grey" data-num="7">7</button>
-            <button type="button" class="btn btn-grey" data-num="8">8</button>
-            <button type="button" class="btn btn-grey" data-num="9">9</button>
-            <button type="button" class="btn btn-yellow" data-num="-">-</button>
-            <button type="button" class="btn btn-yellow" data-num=".">.</button>
-            <button type="button" class="btn btn-grey" data-num="0">0</button>
-            <button type="button" class=" btn-equal" data-num="=">=</button>
-            <button type="button" class="btn btn-yellow" data-num="+">+</button>
-          
-        </div>  
-      
-    </d>
+.buttons {       
+    display: grid;
+    grid-template-columns: repeat(4, 50px);
+    grid-template-rows: repeat(5, 50px);
+    grid-gap: 4px;
+    width: 100%;
+    position: relative;
+    margin-left: 4px;
+}
 
-    <script src="./app.js"></script>
+button {
+   
+    font-size: 1.5em;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    text-align:center;
+    margin-bottom:4px;
+}
+button:hover {
+    background: rgb(236, 235, 235);;
+}
 
-</body>
+button:active {
+    transform: translateY(1.5px);
+    transform: translateX(1.5px);
+    background: rgb(196, 196, 196);
+}
 
-</html>
+
+
+.screen{
+    height: 45px;
+    font-size: 20px;
+    text-align: right;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 3px;
+    background: rgb(202, 201, 201);
+  
+}
+button[data-num="AC"]{
+    grid-column: span 2;
+}
+button[data-num="DEL"]{
+    grid-column: span 2;
+}
