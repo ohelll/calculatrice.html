@@ -1,36 +1,30 @@
+(function() {
 
-const touches = [...document.querySelectorAll('.num_ope')];
-const listeKeycode = touchesmap(touche => touche.dataset.key);
-const screen = document.querySelector('.screen');
+    let screen = document.querySelector('.screen');
+    let buttons = document.querySelectorAll('.btn');
+    let clear = document.querySelector('.btn-clear');
+    let equal = document.querySelector('.btn-equal');
+    let del = document.querySelector('.btn-del');
 
-document.addEventListener('keydown', (e) => {
-   const valeur = e.keyCode.toString();
-   calculer(valeur)
-})
-document.addEventListener('click', (e) => {
-   const valeur = e.tagert.dataset.key;
-   calculer(valeur)
-})
+    buttons.forEach(function(button) {
+        button.addEventListener('click', function(e) {
+                let value = e.target.dataset.num;
+                screen.value += value;
+            })
+    });
 
-const calculer = (valeur) => {
-    if(listeKeycode.includes(valeur)){
-      switch(valeur){
-         case'8':
-         screen.textContent = "";
-         break;
-         case '13':
-            const calcul = eval(screen.textContent);
-            screen.textContent = calcul;
-            break;
-         default:
-            const indexKeycode = listKeycode.indexOf(valeur);
-            const touche = touches[indexKeycode]; 
-            const touche2 = touchess[indexKeycode]; 
-            screen.textContent += touche.innerHTML;
-            screen.textContent += touche2.innerHTML;
-      }     
-    }  
-}
-window.addEventListener('error', (e) => {
-   alert('Erreur syntax  : ' + e.message)}
-)
+    equal.addEventListener('click', function(e){
+        if(screen.value === ''){
+            screen.value = "";
+        }else{
+            let answer = eval(screen.value);
+            screen.value = answer;
+        }
+    })
+
+    clear.addEventListener('click', function(e){
+        screen.value = "";
+    })
+ 
+
+})();
